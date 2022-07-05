@@ -17,14 +17,17 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
+                    
                     <img :src="slides[index].image" alt="Svezia" />
                     <div class="text">
                         <h3>{{slides[index].title}}</h3>
                         <p>{{slides[index].text}}</p>
                     </div>
+                   
                 </div>
 
-                <div class="thumbs">
+
+                <div class="thumbs" v-on:mouseover="playClock" v-on:mouseleave="timerOff">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
 
@@ -45,7 +48,13 @@
                     </div>
                 </div>
 
+                
+
             </div>
+            <div>
+                <button @click="playClock">Play</button>
+            </div>
+
         </div>
 
     </div>

@@ -31,8 +31,10 @@
 const app = new Vue({
     el: '#app',
     data: {
+        clock: 0,
+        isPlay: true,
         index: 0,
-        slides : [
+        slides: [
             {
                 image: 'img/01.jpg',
                 title: 'Svezia',
@@ -60,21 +62,46 @@ const app = new Vue({
             }
         ],
     },
-    methods:{
-        nextSlide: function() {
+    methods: {
+        nextSlide: function () {
             this.index++
             if (this.index == this.slides.length) {
                 this.index = 0;
             }
         },
 
-        prevSlide: function() {
+        prevSlide: function () {
             this.index--;
             if (this.index == - 1) {
                 this.index = this.slides.length - 1;
+            }
+        },
+
+        playClock: function () {
+            if (this.isPlay) {
+                this.clock = setInterval(() => {
+                    this.index++
+                    if (this.index == this.slides.length) {
+                        this.index = 0;
+                    }
+                }, 3000);
+
+                this.isPlay = true;
+            } else {
+                this.isPlay = false;
+            }
+
+        },
+
+        timerOff: function () {
+            if (!this.isPlay) {
+                clearInterval(this.clock);
+                this.isPlay = false;
+            } else {
+                this.isPlay = true;
             }
         }
 
 
     },
-  })
+})
