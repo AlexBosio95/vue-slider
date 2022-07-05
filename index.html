@@ -16,7 +16,7 @@
         <div class="container" >
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item" v-on:mouseover="timerOff" v-on:mouseleave="playClock">
                     
                     <img :src="slides[index].image" alt="Svezia" />
                     <div class="text">
@@ -27,7 +27,7 @@
                 </div>
 
 
-                <div class="thumbs" v-on:mouseover="timerOff" v-on:mouseleave="playClock">
+                <div class="thumbs" >
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
 

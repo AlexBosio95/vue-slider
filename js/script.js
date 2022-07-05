@@ -68,6 +68,12 @@ const app = new Vue({
             if (this.index == this.slides.length) {
                 this.index = 0;
             }
+
+            if (!this.isPlay) {
+                clearInterval(this.clock);
+                this.isPlay = true;
+            }
+            
         },
 
         prevSlide: function () {
@@ -75,6 +81,12 @@ const app = new Vue({
             if (this.index == - 1) {
                 this.index = this.slides.length - 1;
             }
+
+            if (!this.isPlay) {
+                clearInterval(this.clock);
+                this.isPlay = true;
+            }
+            
         },
 
         playClock: function () {
