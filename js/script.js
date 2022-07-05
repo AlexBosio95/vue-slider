@@ -86,9 +86,9 @@ const app = new Vue({
                     }
                 }, 3000);
 
-                this.isPlay = true;
-            } else {
                 this.isPlay = false;
+            } else {
+                this.isPlay = true;
             }
 
         },
@@ -96,9 +96,9 @@ const app = new Vue({
         timerOff: function () {
             if (!this.isPlay) {
                 clearInterval(this.clock);
-                this.isPlay = false;
-            } else {
                 this.isPlay = true;
+            } else {
+                this.isPlay = false;
             }
         }
 
