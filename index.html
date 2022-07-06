@@ -18,10 +18,10 @@
 
                 <div class="item" v-on:mouseover="timerOff" v-on:mouseleave="playClock">
                     
-                    <img :src="slides[index].image" alt="Svezia" />
+                    <img :src="slides[indexActive].image" :alt="slides[indexActive].title" />
                     <div class="text">
-                        <h3>{{slides[index].title}}</h3>
-                        <p>{{slides[index].text}}</p>
+                        <h3>{{slides[indexActive].title}}</h3>
+                        <p>{{slides[indexActive].text}}</p>
                     </div>
                    
                 </div>
@@ -31,21 +31,10 @@
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
 
-                    <div class="thumb active" v-for="image in slides">
-                        <img :src="slides[index].image" alt="Svezia"/>
+                    <div class="thumb" v-for="(thumb, index) in slides" :class="(index == indexActive) ? 'active' : '' ">
+                        <img :src="thumb.image" :alt="thumb.title"/>
                     </div>
-                    <!-- <div class="thumb">
-                        <img src="img/02.jpg" alt="Svizzera" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.jpg" alt="Gran Bretagna" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.jpg" alt="Germania" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.jpg" alt="Paradise" />
-                    </div> -->
+
                 </div>
 
                 
