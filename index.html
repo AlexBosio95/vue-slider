@@ -23,25 +23,17 @@
                         <h3>{{slides[indexActive].title}}</h3>
                         <p>{{slides[indexActive].text}}</p>
                     </div>
-                   
                 </div>
-
 
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
 
-                    <div class="thumb" v-for="(thumb, index) in slides" :class="(index == indexActive) ? 'active' : '' ">
+                    <div class="thumb" v-for="(thumb, index) in slides" @click="changePicture(index)" :class="(index == indexActive) ? 'active' : '' " >
                         <img :src="thumb.image" :alt="thumb.title"/>
                     </div>
 
                 </div>
-
-                
-
-            </div>
-            <div>
-                <button @click="playClock">Play</button>
             </div>
 
         </div>

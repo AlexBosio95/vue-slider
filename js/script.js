@@ -79,8 +79,16 @@ const app = new Vue({
                 clearInterval(this.clock);
                 this.isPlay = true;
             }
-        }
+        },
+
+        changePicture: function(indexChange) {
+            this.indexActive == indexChange;
+        },
 
 
     },
+
+    created(){
+        this.playClock();
+    }
 })
